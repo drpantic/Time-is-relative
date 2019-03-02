@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Time is relative</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  color: white;
+  background-color: rgb(132, 187, 121);
+}
+
+h1 {
+  color: darkred;
+}
+
+#text {
+  display: none;
+  color: darkblue;
+  font-size: 26px;
+}
+
+button {
+background-color: rgb(184, 51, 162);
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 24px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+#showResult {
+  background-color: darkred;
+}
+
+#reload {
+  background-color: blue;
+}
+</style>
+
+<body>
+<h1>Subjective second test</h1>
+<p>Time is relative! One's subjective second may not be same as the real (objective second).
+Time perception and perceived duration of events depend on many physiological and psychological factors.
+This simple test allows the user to compare his subjective second with actual (real, objective) second.
+Click on the "Begin test!" button to start the test.
+One second later (your subjective second), click the "End test" button. Repeat this test at least 10 times.
+After that, click the "Show result" button.
+The page will display the average real length of your "subjective second".</p>
+  <button id = "start" onclick = "funct1()">Begin test!</button>
+  <button id = "button2" onclick = "funct2()">End test!</button>
+  <span id = 'result'></span>
+  <br/>
+  <p id= "text"></p>
+  <button id = "showResult" onclick = "showResult()">Show result!</button>
+  <br/>
+  <button id = "reload" onclick = "window.location.reload()">Reload page!</button>
+<br/>
+<p>This test is intended for research purposes in the fields of physiology, psychology and psychiatry.
+Citation:
+<em>Pantic I. Subjective second test. http://www.igorpantic.com/sstest.html Accessed: _____.</em>
+</p>
+<script>
+
+let z = 0;
+let count = 0;
+var button1 = document.getElementById('start');
+var button2 = document.getElementById('button2');
+var result = document.getElementById('result');
+var text = document.getElementById('text');
+var funct1 = () => {
+window.x = new Date();
+};
+
+var funct2 = () => {
+  let y = (new Date()) - x;
+  z = z + y;
+  count = count + 1;
+  text.innerHTML = " The average length of your subjective second was " + Math.round (z / count) + " miliseconds.";
+};
+
+var showResult = () => {
+  document.getElementById('text').style.display = "block";
+};
+
+</script>
+
+</body>
+</html>
